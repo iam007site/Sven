@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caipiao.dao.WebsiteDao">
+
+	<resultMap type="Website" id="Website_MAP">
+		<id property="nid" column="nid" />
+		<result property="url" column="url" />
+		<result property="name" column="name" />
+		<result property="pictures" column="pictures" />
+		<result property="summary" column="summary" />
+		<result property="content" column="content" />
+		<result property="score" column="score" />
+		<result property="logo" column="logo" />
+		<result property="vp" column="vp" />
+		<result property="createTime" column="create_time" />
+	</resultMap>
+	
+	<resultMap type="WebsiteItem" id="WebsiteItem_MAP">
+		<id property="nid" column="nid" />
+		<result property="url" column="url" />
+		<result property="name" column="name" />
+		<result property="score" column="score" />
+		<result property="logo" column="logo" />
+		<result property="createTime" column="create_time" />
+	</resultMap>
+	
+	<insert id="create" parameterType="Website" useGeneratedKeys="true" keyProperty="nid">
+	   insert into
+	   ad_website(url,name,pictures,summary,content,score,logo,vp,create_time)
+	   values(#{url},#{name},#{pictures},#{summary},#{content},#{score},#{logo},#{vp},#{createTime})
+	</insert>
+	
+	<select id="findById" parameterType="long" resultMap="Website_MAP">
+		select *
+		from ad_website
+		where nid = #{nid}
+		limit 1
+	</select>
+
+    <delete id="deleteById" parameterType="long">
+        delete from ad_website
+        where nid = #{nid}
+    </delete>
+    
+    <update id="update" parameterType="Website">
+        update ad_website
+        set url = #{url},name = #{name},pictures = #{pictures},
+        summary = #{summary},content = #{content},score = #{score},
+        logo = #{logo},vp = #{vp}
+        where nid = #{nid}
+    </update>
+
+    <!-- page:pageSize,conditon.lastId -->
+    <select id="getPage" parameterType="Page" resultMap="WebsiteItem_MAP">
+        select *
+        from ad_website
+        where nid &gt; #{condition.lastId}
+        order by nid asc
+        limit #{pageSize}
+    </select>
+    
+    <select id="fingByUrl" parameterType="String" resultMap="Website_MAP">
+        select * from ad_website
+        where url = #{url}
+        limit 1
+    </select>
+    
+    <!-- page:pageSize,offset -->
+    <select id="getPageByOffset" parameterType="Page" resultMap="WebsiteItem_MAP">
+        select *
+        from ad_website
+        order by nid asc
+        limit #{offset},#{pageSize}
+    </select>
+    
+    <select id="getTotalNum" resultType="long">
+        select count(*) from ad_website
+    </select>
+</mapper>
