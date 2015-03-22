@@ -17,51 +17,51 @@
 	<insert id="create" parameterType="User" keyProperty="id"
 		useGeneratedKeys="true">
 		insert into
-		user(create_time,username,email,password,email_auth,salt)
+		u_user(create_time,username,email,password,email_auth,salt)
 		values(#{createTime},#{username},#{email},#{password},#{emailAuth},#{salt})
 	</insert>
 
 	<select id="findUserByEmail" parameterType="String" resultMap="USER_MAP">
-		select * from user
+		select * from u_user
 		where email = #{email}
 		limit 1
 	</select>
 
 	<select id="findUserByUserName" parameterType="String"
 		resultMap="USER_MAP">
-		select * from user
+		select * from u_user
 		where username = #{username}
 		limit 1
 	</select>
 	<select id="findById" parameterType="int" resultMap="USER_MAP">
 		select *
-		from user
+		from u_user
 		where id = #{nid}
 		limit 1
 	</select>
 
 
 	<update id="updateUsername" parameterType="User">
-		update user
+		update u_user
 		set username = #{username},create_time = #{createTime}
 		where id = #{id}
 	</update>
 
 	<update id="updatePassword" parameterType="User">
-		update user
+		update u_user
 		set password = #{password},create_time = #{createTime}
 		where id = #{id}
 	</update>
 
 	<update id="updateEmailAuth" parameterType="User">
-		update user
+		update u_user
 		set email_auth = #{emailAuth},create_time = #{createTime}
 		where id = #{id}
 	</update>
 
 
 	<delete id="deleteById" parameterType="int">
-		delete from user
+		delete from u_user
 		where id = #{nid}
 	</delete>
 

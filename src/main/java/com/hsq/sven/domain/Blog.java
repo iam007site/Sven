@@ -10,10 +10,20 @@ import com.hsq.sven.domain.base.BaseDomain;
  */
 public class Blog extends BaseDomain implements Serializable {
 
+	private long userId;
 	private String title;
 	private String author;
+	private String summary;
 	private String content;
 	private long CategoryId;
+
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
 
 	public String getTitle() {
 		return title;
@@ -29,6 +39,14 @@ public class Blog extends BaseDomain implements Serializable {
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
 	}
 
 	public String getContent() {
