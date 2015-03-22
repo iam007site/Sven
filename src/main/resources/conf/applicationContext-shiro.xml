@@ -25,12 +25,12 @@
 	</bean>
 	
 	<!-- 項目自定义的Realm -->
-	<bean id="shiroDbRealm" class="com.caipiao.security.ShiroDbRealm" />
+	<bean id="shiroDbRealm" class="com.hsq.sven.security.ShiroDbRealm" />
 	<!-- Shiro Filter -->
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager" />
 		<property name="loginUrl" value="/user/login" />
-		<property name="successUrl" value="/admin" />
+		<property name="successUrl" value="/home" />
 		<property name="unauthorizedUrl" value="/user/login" />
 		
 		<property name="filters">
@@ -43,9 +43,8 @@
 		        /user/login= authc
 		        /user/logout = logout
 		        /user/register/**= anon
-		        /admin/**= user
-		        /api/** = anon
 		        /doc/** = anon
+		        /home = anon
 		        
 		   </value>
 			<!--value>

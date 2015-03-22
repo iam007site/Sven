@@ -72,7 +72,7 @@
 
 	<!-- spring与mybatis整合配置，扫描所有dao -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-		p:basePackage="com.caipiao.dao" p:sqlSessionFactoryBeanName="sqlSessionFactory" />
+		p:basePackage="com.hsq.sven.dao" p:sqlSessionFactoryBeanName="sqlSessionFactory" />
 
 	<!-- 对数据源进行事务管理 -->
 	<bean id="transactionManager"

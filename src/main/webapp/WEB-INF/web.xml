@@ -56,7 +56,7 @@
 	<filter>
 		<display-name>ParametersLogFilter</display-name>
 		<filter-name>ParametersLogFilter</filter-name>
-		<filter-class>com.caipiao.filter.ParametersLogFilter</filter-class>
+		<filter-class>com.hsq.sven.filter.ParametersLogFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>ParametersLogFilter</filter-name>
@@ -78,7 +78,7 @@
 	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-	</listener -->>
+	</listener -->
  
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

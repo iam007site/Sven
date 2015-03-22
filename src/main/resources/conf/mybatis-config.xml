@@ -6,21 +6,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <!-- 命名空间 -->
     <typeAliases>
          
-         <typeAlias alias="DltDetail" type="com.caipiao.domain.DltDetail"/> 
-         <typeAlias alias="Fc3dDetail" type="com.caipiao.domain.Fc3dDetail"/> 
-         <typeAlias alias="SsqDetail" type="com.caipiao.domain.SsqDetail"/> 
-         <typeAlias alias="Pl3Detail" type="com.caipiao.domain.Pl3Detail"/> 
-         <typeAlias alias="ZixunDetail" type="com.caipiao.domain.ZixunDetail"/> 
-         <typeAlias alias="ZixunItem" type="com.caipiao.domain.item.ZixunItem"/> 
-         <typeAlias alias="Page" type="com.caipiao.domain.base.Page"/> 
+         <typeAlias alias="Page" type="com.hsq.sven.domain.base.Page"/> 
          
          
-         <typeAlias alias="User" type="com.caipiao.domain.User"/> 
-         <typeAlias alias="Advertising" type="com.caipiao.domain.Advertising"/> 
-         <typeAlias alias="Website" type="com.caipiao.domain.Website"/> 
-         <typeAlias alias="WebsiteItem" type="com.caipiao.domain.item.WebsiteItem"/> 
-         <typeAlias alias="WebsiteComment" type="com.caipiao.domain.WebsiteComment"/> 
-         <typeAlias alias="AppFeedback" type="com.caipiao.domain.AppFeedback"/> 
+         <typeAlias alias="User" type="com.hsq.sven.domain.User"/> 
     </typeAliases>
  
     <!-- 映射map -->

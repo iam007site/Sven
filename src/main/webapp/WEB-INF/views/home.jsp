@@ -7,15 +7,17 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="彩票管理后台">
+<meta name="description" content="home">
 <meta name="author" content="huangshanqi">
 
-<title>彩票管理后台</title>
+<title>home</title>
 
 </head>
 <body>
-	<%
+<%-- 	<%
 		response.sendRedirect("/admin/ad/1");
-	%>
+	%> --%>
+	
+	<h1>home</h1>
 </body>
 </html>
