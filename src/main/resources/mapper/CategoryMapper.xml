@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hsq.sven.dao.blog.CategoryDao">
+
+	<resultMap type="Category" id="Category_Map">
+		<id property="id" column="id" />
+		<result property="createTime" column="create_time" />
+		<result property="updateTime" column="update_time" />
+		<result property="name" column="name" />
+		<result property="userId" column="user_id" />
+	</resultMap>
+
+	<insert id="create" parameterType="Category" keyProperty="id"
+		useGeneratedKeys="true">
+		insert into
+		blog_category(create_time,update_time,name,user_id)
+		values(#{createTime},#{updateTime},#{name},#{userId})
+	</insert>
+	
+	<select id="findById" resultMap="Category_Map" parameterType="long">
+	    select * from blog_category
+	    where id = #{id}
+	    limit 1
+	</select>
+	
+	<delete id="deleteById" parameterType="long">
+	     delete from blog_category
+	     where id = #{id}
+	</delete>
+	
+	<update id="update" parameterType="Category">
+	    update blog_category
+	    set update_time = #{updateTime},title = #{name}
+	    where id = #{id}
+	</update>
+	
+	<select id="getUserAllCategory" resultMap="Category_Map">
+	    select * from blog_category
+	    where user_id = #{userId}
+	    order by create_time desc
+	</select>
+	
+	<select id="getByUserIdName" resultMap="Category_Map" parameterType="Page">
+	    select * from blog_category
+	    where user_id = #{conditon.userId} and name = #{condition.name}
+	    limit 1
+	</select>
+	
+
+</mapper>

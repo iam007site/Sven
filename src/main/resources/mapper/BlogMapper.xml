@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hsq.sven.dao.blog.BlogDao">
+
+	<resultMap type="Blog" id="Blog_Map">
+		<id property="id" column="id" />
+		<result property="createTime" column="create_time" />
+		<result property="updateTime" column="update_time" />
+		<result property="userId" column="user_id" />
+		<result property="title" column="title" />
+		<result property="author" column="author" />
+		<result property="summary" column="summary" />
+		<result property="content" column="content" />
+		<result property="categoryName" column="category_name" />
+		<result property="categoryId" column="category_id" />
+	</resultMap>
+
+	<insert id="create" parameterType="Blog" keyProperty="id"
+		useGeneratedKeys="true">
+		insert into
+		blog_blog(create_time,update_time,user_id,title,author,summary,content,category_name,category_id)
+		values(#{createTime},#{updateTime},#{userId},#{title},#{author},#{summary},#{content},#{categoryName},#{categoryId})
+	</insert>
+	
+	<select id="findById" resultMap="Blog_Map" parameterType="long">
+	    select * from blog_blog
+	    where id = #{id}
+	    limit 1
+	</select>
+	
+	<delete id="deleteById" parameterType="long">
+	     delete from blog_blog
+	     where id = #{id}
+	</delete>
+	
+	<update id="update" parameterType="Blog">
+	    update blog_blog
+	    set update_time = #{updateTime},title = #{title},summary = #{summary},
+	    category_name = #{categoryName},category_id = #{categoryId},content = #{content}
+	    where id = #{id}
+	</update>
+	
+	<select id="getByPage" resultMap="Blog_Map" parameterType="Page">
+	    select * from blog_blog
+	    where user_id = #{condition.userId}
+	    order by create_time desc
+	    limit #{offset},#{pageSize}
+	</select>
+	
+    <select id="getByCategoryByPage" resultMap="Blog_Map" parameterType="Page">
+		select * from blog_blog
+	    where user_id = #{condition.userId} and category_id = #{condition.categoryId}
+	    order by create_time desc
+	    limit #{offset},#{pageSize}
+	</select>
+
+
+</mapper>

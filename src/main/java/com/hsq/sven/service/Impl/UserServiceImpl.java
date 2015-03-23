@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
 	
 	@Transactional
 	@Override
-	public int createUser(User user) {
+	public long createUser(User user) {
 		// TODO Auto-generated method stub
 		User temp = userDao.findUserByEmail(user.getEmail());
 		if(temp != null)

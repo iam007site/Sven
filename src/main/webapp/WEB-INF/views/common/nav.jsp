@@ -16,7 +16,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">彩票管理</a>
+				<a class="navbar-brand" href="#">Sven</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
@@ -30,11 +30,11 @@
 					<li class="dropdown">
 					   <a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-expanded="false"> 
-						广告推广<span class="caret"></span>
+						博文<span class="caret"></span>
 					   </a>
 						<ul class="dropdown-menu" role="menu">
-							<li id="adManage"><a href="/admin/ad/1">广告管理</a></li>
-					        <li id="adNew"><a href="/admin/ad/new">添加广告</a></li>
+							<li id="blog"><a href="/user/blog/1">我的博文</a></li>
+					        <li id="newblog"><a href="/user/blog/new">发布博文</a></li>
 						</ul>
 					</li>
 					
@@ -59,11 +59,6 @@
 					        <li id="zixunNew"><a href="/admin/zx/new">添加资讯</a></li>
 						</ul>
 					</li>
-<!-- 					<li id="adManage"><a href="/admin/ad">广告管理</a></li>
-					<li id="adNew"><a href="/admin/ad/new">添加广告</a></li>
-					<li id="webManage"><a href="/admin/website">网站管理</a></li>
-					<li id="webNew"><a href="/admin/website/new">添加网站</a></li> 
-					<li id="zixunNew"><a href="/admin/zx/new">添加资讯</a></li>-->
 					<li id="feedback"><a href="/admin/feedback/1">app反馈</a></li>
 					<li>&nbsp;&nbsp;&nbsp;</li>
 

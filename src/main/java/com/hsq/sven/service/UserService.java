@@ -15,7 +15,7 @@ public interface UserService {
 	
 
 	
-	public int createUser(User user);
+	public long createUser(User user);
 	
 	public User findUserByEmail(String email);
 	public User findUserByUserName(String username);

@@ -1,4 +1,4 @@
-package com.hsq.sven.domain;
+package com.hsq.sven.domain.blog;
 
 import java.io.Serializable;
 
@@ -15,7 +15,8 @@ public class Blog extends BaseDomain implements Serializable {
 	private String author;
 	private String summary;
 	private String content;
-	private long CategoryId;
+	private String categoryName;
+	private long categoryId;
 
 	public long getUserId() {
 		return userId;
@@ -57,12 +58,20 @@ public class Blog extends BaseDomain implements Serializable {
 		this.content = content;
 	}
 
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
 	public long getCategoryId() {
-		return CategoryId;
+		return categoryId;
 	}
 
 	public void setCategoryId(long categoryId) {
-		CategoryId = categoryId;
+		this.categoryId = categoryId;
 	}
 
 }

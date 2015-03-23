@@ -1,4 +1,4 @@
-package com.hsq.sven.domain;
+package com.hsq.sven.domain.blog;
 
 import java.io.Serializable;
 
