@@ -45,6 +45,7 @@
 		        /user/register/**= anon
 		        /doc/** = anon
 		        /home = anon
+		        /user/blog/** = anon
 		        
 		   </value>
 			<!--value>

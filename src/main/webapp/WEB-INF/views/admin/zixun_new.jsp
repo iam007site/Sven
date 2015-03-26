@@ -69,7 +69,8 @@
 					<div class="form-group">
 						<label class="col-md-4 col-xs-4 control-label" for="summary">资讯摘要</label>
 						<div class="col-md-7 col-xs-7">
-							<textarea rows="10"  class="form-control" id="summary" name="summary">请填写资讯摘要</textarea>
+							<textarea rows="10" class="form-control" id="summary"
+								name="summary">请填写资讯摘要</textarea>
 						</div>
 					</div>
 
@@ -77,7 +78,8 @@
 					<div class="form-group">
 						<label class="col-md-4 col-xs-4 control-label" for="content">资讯详情</label>
 						<div class="col-md-7 col-xs-7">
-							<textarea rows="20" cols="100" class="form-control" id="content" name="content">请填写资讯详情</textarea>
+							<textarea rows="20" cols="100" class="form-control" id="content"
+								name="content">请填写资讯详情</textarea>
 						</div>
 					</div>
 
