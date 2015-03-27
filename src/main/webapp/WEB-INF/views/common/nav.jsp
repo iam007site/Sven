@@ -27,38 +27,32 @@
 						<li><a href="/user/logout">[退出]</a></li>
 					</shiro:authenticated>
 
-					<li class="dropdown">
-					   <a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-expanded="false"> 
-						博文<span class="caret"></span>
-					   </a>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-expanded="false"> 博文<span
+							class="caret"></span>
+					</a>
 						<ul class="dropdown-menu" role="menu">
 							<li id="blog"><a href="/user/blog/1">我的博文</a></li>
-					        <li id="newblog"><a href="/user/blog/new">发布博文</a></li>
-						</ul>
-					</li>
-					
-					<li class="dropdown">
-					   <a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-expanded="false"> 
-						网站推广<span class="caret"></span>
-					   </a>
+							<li id="newblog"><a href="/user/blog/new">发布博文</a></li>
+						</ul></li>
+
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-expanded="false">
+							网站推广<span class="caret"></span>
+					</a>
 						<ul class="dropdown-menu" role="menu">
-					        <li id="webManage"><a href="/admin/website/1">网站管理</a></li>
-					        <li id="webNew"><a href="/admin/website/new">添加网站</a></li>
-						</ul>
-					</li>
-					
-					<li class="dropdown">
-					   <a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-expanded="false"> 
-						文章资讯<span class="caret"></span>
-					   </a>
+							<li id="webManage"><a href="/admin/website/1">网站管理</a></li>
+							<li id="webNew"><a href="/admin/website/new">添加网站</a></li>
+						</ul></li>
+
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-expanded="false">
+							文章资讯<span class="caret"></span>
+					</a>
 						<ul class="dropdown-menu" role="menu">
-					        <li id="zixunNew"><a href="/admin/zx/1">资讯管理</a></li>
-					        <li id="zixunNew"><a href="/admin/zx/new">添加资讯</a></li>
-						</ul>
-					</li>
+							<li id="zixunNew"><a href="/admin/zx/1">资讯管理</a></li>
+							<li id="zixunNew"><a href="/admin/zx/new">添加资讯</a></li>
+						</ul></li>
 					<li id="feedback"><a href="/admin/feedback/1">app反馈</a></li>
 					<li>&nbsp;&nbsp;&nbsp;</li>
 
@@ -69,3 +63,9 @@
 
 	<!-- </div> -->
 </div>
+
+<c:if test="${not empty message}">
+	<p class="bg-danger">
+		<c:out value="${message }"></c:out>
+	</p>
+</c:if>

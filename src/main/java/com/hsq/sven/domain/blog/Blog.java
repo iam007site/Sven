@@ -11,6 +11,7 @@ import com.hsq.sven.domain.base.BaseDomain;
 public class Blog extends BaseDomain implements Serializable {
 
 	private long userId;
+	private String blogType;
 	private String title;
 	private String author;
 	private String summary;
@@ -24,6 +25,14 @@ public class Blog extends BaseDomain implements Serializable {
 
 	public void setUserId(long userId) {
 		this.userId = userId;
+	}
+	
+	public String getBlogType() {
+		return blogType;
+	}
+
+	public void setBlogType(String blogType) {
+		this.blogType = blogType;
 	}
 
 	public String getTitle() {

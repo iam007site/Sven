@@ -9,6 +9,7 @@
 		<result property="createTime" column="create_time" />
 		<result property="updateTime" column="update_time" />
 		<result property="userId" column="user_id" />
+		<result property="blogType" column="blog_type" />
 		<result property="title" column="title" />
 		<result property="author" column="author" />
 		<result property="summary" column="summary" />
@@ -20,8 +21,8 @@
 	<insert id="create" parameterType="Blog" keyProperty="id"
 		useGeneratedKeys="true">
 		insert into
-		blog_blog(create_time,update_time,user_id,title,author,summary,content,category_name,category_id)
-		values(#{createTime},#{updateTime},#{userId},#{title},#{author},#{summary},#{content},#{categoryName},#{categoryId})
+		blog_blog(create_time,update_time,user_id,blog_type,title,author,summary,content,category_name,category_id)
+		values(#{createTime},#{updateTime},#{userId},#{blogType},#{title},#{author},#{summary},#{content},#{categoryName},#{categoryId})
 	</insert>
 	
 	<select id="findById" resultMap="Blog_Map" parameterType="long">
@@ -37,7 +38,7 @@
 	
 	<update id="update" parameterType="Blog">
 	    update blog_blog
-	    set update_time = #{updateTime},title = #{title},summary = #{summary},
+	    set update_time = #{updateTime},blog_type= #{blogType},title = #{title},summary = #{summary},
 	    category_name = #{categoryName},category_id = #{categoryId},content = #{content}
 	    where id = #{id}
 	</update>
