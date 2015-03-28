@@ -8,7 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>彩票后台登陆</title>
 		<!-- Bootstrap core CSS -->
-		<link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/resources/css/bootstrap3.3.2/bootstrap-3.3.2.min.css" rel="stylesheet">
 		<!-- Custom styles for this template -->
 		<link href="/resources/css/signin.css" rel="stylesheet">
 		<!-- Just for debugging purposes. Don't actually copy this line! -->

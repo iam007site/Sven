@@ -29,6 +29,11 @@ public class BlogWebController {
 		return "blog/new_blog";
 	}
 	
+	@RequestMapping(value="home",method=RequestMethod.GET)
+	public String Home(){
+		return "blog/blog_home";
+	}
+	
 	@RequestMapping(value="new",method=RequestMethod.POST)
 	@ResponseBody
 	public Object newBlogPost(@ModelAttribute NewBlogForm form){
@@ -42,5 +47,7 @@ public class BlogWebController {
 		
 		return result;
 	}
+	
+	
 
 }
