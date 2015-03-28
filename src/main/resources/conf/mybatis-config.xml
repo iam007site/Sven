@@ -10,6 +10,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
          <typeAlias alias="User" type="com.hsq.sven.domain.User"/> 
          
          <typeAlias alias="Blog" type="com.hsq.sven.domain.blog.Blog"/> 
+         <typeAlias alias="BlogItem" type="com.hsq.sven.domain.blog.item.BlogItem"/> 
+         <typeAlias alias="BlogCategoryStatistic" type="com.hsq.sven.domain.blog.BlogCategoryStatistic"/> 
          <typeAlias alias="BlogTag" type="com.hsq.sven.domain.blog.BlogTag"/> 
          <typeAlias alias="Category" type="com.hsq.sven.domain.blog.Category"/> 
          

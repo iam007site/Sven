@@ -1,5 +1,6 @@
 package com.hsq.sven.service.blog.Impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +11,10 @@ import com.hsq.sven.dao.blog.BlogDao;
 import com.hsq.sven.dao.blog.BlogTagDao;
 import com.hsq.sven.dao.blog.CategoryDao;
 import com.hsq.sven.domain.blog.Blog;
+import com.hsq.sven.domain.blog.BlogCategoryStatistic;
 import com.hsq.sven.domain.blog.BlogTag;
 import com.hsq.sven.domain.blog.Category;
+import com.hsq.sven.domain.blog.item.BlogItem;
 import com.hsq.sven.form.NewBlogForm;
 import com.hsq.sven.security.UserUtils;
 import com.hsq.sven.service.blog.BlogService;
@@ -77,4 +80,33 @@ public class BlogServiceImpl implements BlogService {
 		return success;
 	}
 
+	@Transactional
+	@Override
+	public int getUserTotalBlogNum(long userId) {
+		// TODO Auto-generated method stub
+		return blogDao.getUserTotalBlogNum(userId);
+	}
+
+	@Override
+	public ArrayList<BlogItem> getUserBlogByOffset(long userId, int offset, int pageSize) {
+		// TODO Auto-generated method stub
+		return blogDao.getUserBlogByOffset(userId, offset, pageSize);
+	}
+
+	@Override
+	public ArrayList<BlogCategoryStatistic> getUserBlogCategoryStatistic(long userId) {
+		// TODO Auto-generated method stub
+//		List<Map<String, Object>> origin = blogDao.getUsrBlogCategoryStatistic(userId);
+//		for (Map<String, Object> map : origin) {
+//		      for (Map.Entry<String, Object> entry : map.entrySet()) {
+//		        System.out.println(entry.getKey() + ":" + entry.getValue());
+//		      }
+//		}
+		return blogDao.getUsrBlogCategoryStatistic(userId);
+	}
+
+	
+	
+	
+	
 }

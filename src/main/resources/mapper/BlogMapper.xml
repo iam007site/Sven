@@ -17,6 +17,27 @@
 		<result property="categoryName" column="category_name" />
 		<result property="categoryId" column="category_id" />
 	</resultMap>
+	
+	<resultMap type="BlogItem" id="BlogItem_Map">
+		<id property="id" column="id" />
+		<result property="createTime" column="create_time" />
+		<result property="updateTime" column="update_time" />
+		<result property="blogType" column="blog_type" />
+		<result property="title" column="title" />
+		<result property="author" column="author" />
+		<result property="summary" column="summary" />
+		<result property="categoryName" column="category_name" />
+		<result property="categoryId" column="category_id" />
+	</resultMap>
+	
+	<resultMap type="BlogCategoryStatistic" id="Blog_Category_Statistic_Map">
+		<result property="author" column="author" />
+		<result property="categoryName" column="category_name" />
+		<result property="categoryId" column="category_id" />
+		<result property="num" column="num" />
+		
+	</resultMap>
+	
 
 	<insert id="create" parameterType="Blog" keyProperty="id"
 		useGeneratedKeys="true">
@@ -24,38 +45,60 @@
 		blog_blog(create_time,update_time,user_id,blog_type,title,author,summary,content,category_name,category_id)
 		values(#{createTime},#{updateTime},#{userId},#{blogType},#{title},#{author},#{summary},#{content},#{categoryName},#{categoryId})
 	</insert>
-	
+
 	<select id="findById" resultMap="Blog_Map" parameterType="long">
-	    select * from blog_blog
-	    where id = #{id}
-	    limit 1
-	</select>
-	
-	<delete id="deleteById" parameterType="long">
-	     delete from blog_blog
-	     where id = #{id}
-	</delete>
-	
-	<update id="update" parameterType="Blog">
-	    update blog_blog
-	    set update_time = #{updateTime},blog_type= #{blogType},title = #{title},summary = #{summary},
-	    category_name = #{categoryName},category_id = #{categoryId},content = #{content}
-	    where id = #{id}
-	</update>
-	
-	<select id="getByPage" resultMap="Blog_Map" parameterType="Page">
-	    select * from blog_blog
-	    where user_id = #{condition.userId}
-	    order by create_time desc
-	    limit #{offset},#{pageSize}
-	</select>
-	
-    <select id="getByCategoryByPage" resultMap="Blog_Map" parameterType="Page">
 		select * from blog_blog
-	    where user_id = #{condition.userId} and category_id = #{condition.categoryId}
-	    order by create_time desc
-	    limit #{offset},#{pageSize}
+		where id = #{id}
+		limit 1
 	</select>
 
+	<delete id="deleteById" parameterType="long">
+		delete from blog_blog
+		where id = #{id}
+	</delete>
+
+	<update id="update" parameterType="Blog">
+		update blog_blog
+		set update_time = #{updateTime},blog_type= #{blogType},title =
+		#{title},summary = #{summary},
+		category_name = #{categoryName},category_id = #{categoryId},content = #{content}
+		where id = #{id}
+	</update>
+
+	<select id="getByPage" resultMap="Blog_Map" parameterType="Page">
+		select * from blog_blog
+		where user_id = #{condition.userId}
+		order by create_time desc
+		limit #{offset},#{pageSize}
+	</select>
+
+	<select id="getByCategoryByPage" resultMap="Blog_Map"
+		parameterType="Page">
+		select * from blog_blog
+		where user_id = #{condition.userId} and category_id =
+		#{condition.categoryId}
+		order by create_time desc
+		limit #{offset},#{pageSize}
+	</select>
+
+	<select id="getUserTotalBlogNum" resultType="int">
+		select count(*) from blog_blog
+		where user_id = #{userId}
+	</select>
+
+	<select id="getUserBlogByOffset" resultMap="BlogItem_Map">
+		select * from blog_blog
+		where user_id = #{userId}
+		order by create_time desc
+		limit #{offset},#{pageSize}
+	</select>
+
+	<select id="getUsrBlogCategoryStatistic" resultMap="Blog_Category_Statistic_Map">
+		select author,count(id) as num,category_name,category_id
+		from blog_blog
+		where user_id = 1
+		group by category_id,category_name
+		order by category_name;
+	</select>
 
 </mapper>

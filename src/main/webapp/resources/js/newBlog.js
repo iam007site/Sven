@@ -40,7 +40,7 @@ $(function(){
 			},
 			content: {
 				required : true,
-				maxlength :8000
+				maxlength :60000
 			},
 			category: {
 				required : true
@@ -63,7 +63,7 @@ $(function(){
 			},
 			content : {
 				required : "请填写文章详细内容！！！",
-				maxlength :"章详细内容最多8000字"
+				maxlength :"章详细内容最多10000字"
 			},
 			category: {
 				required : "请填写文章分类！！！"

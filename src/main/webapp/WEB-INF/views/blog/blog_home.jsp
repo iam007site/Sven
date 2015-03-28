@@ -86,34 +86,27 @@ body {
 					<div class="left-item">
 						<h3 class="left-item-title text-center">博文分类</h3>
 						<ul>
-
-							<li class="left-item-li"><a id="CatList_LinkList_0_Link_0"
-								href="http://www.cnblogs.com/lj-1568/category/670875.html">C语言初学
-									源于课本(11)</a></li>
-							<li class="left-item-li"><a id="CatList_LinkList_0_Link_0"
-								href="http://www.cnblogs.com/lj-1568/category/670875.html">C语言初学
-									源于课本(11)</a></li>
-							<li class="left-item-li"><a id="CatList_LinkList_0_Link_0"
-								href="http://www.cnblogs.com/lj-1568/category/670875.html">C语言初学
-									源于课本(11)</a></li>
-							<li class="left-item-li"><a id="CatList_LinkList_0_Link_0"
-								href="http://www.cnblogs.com/lj-1568/category/670875.html">C语言初学
-									源于课本(11)</a></li>
-							<li class="left-item-li"><a id="CatList_LinkList_0_Link_0"
-								href="http://www.cnblogs.com/lj-1568/category/670875.html">C语言初学
-									源于课本(11)</a></li>
-
+						<c:if test="${not empty categoryList}">
+						<c:forEach items="${ categoryList}" var="category">
+						    <li class="left-item-li">
+						     	<a  href="/${category.author}/blog/category/${category.categoryId}">
+						     	    <c:out value="${category.categoryName}"></c:out>(<c:out value="${category.num}"></c:out>)
+						     	</a>
+						     </li>
+						</c:forEach>
+						</c:if>
 						</ul>
 					</div>
-
 				</div>
+				
 				<div class="col-md-9 right-body pull-right">
-					<div class="right-body-list">
-
-						<div class="right-body-list-item">
-							<article>
+				  <div class="right-body-list">
+					
+					<c:if test="${not empty blogList}">
+					    <c:forEach items="${blogList}" var="blog">
+					        <article>
 							<h2>
-								<a href="singlepost.html">Aries Sun Sign March 21 - April 19</a>
+								<a href="/${blog.author}/blog/detail/${blog.id}"><c:out value="${blog.title }"></c:out></a>
 							</h2>
 
 							<div class="row">
@@ -123,73 +116,27 @@ body {
 									<a href="#">Aries</a>, <a href="#">Fire</a>, <a href="#">Mars</a>
 								</div>
 								<div class="group2 col-sm-6 col-md-6">
-									<span class="glyphicon glyphicon-pencil"></span> <a
-										href="singlepost.html#comments">20 Comments</a> <span
-										class="glyphicon glyphicon-time"></span> August 24, 2013 9:00
-									PM
+									<span class="glyphicon glyphicon-pencil"></span> 
+									<a href="singlepost.html#comments">20 Comments</a> 
+									<span class="glyphicon glyphicon-time"></span>
+									<fmt:formatDate value="${blog.createTime}" type="both" pattern="yyyy-MM-dd HH:mm:ss" />
 								</div>
 							</div>
-
 							<!-- <hr> -->
-
 							<!-- <img src="http://placehold.it/900x300" class="img-responsive"> -->
-
 							<br />
-
-							<p class="lead">Aries is the first sign of the zodiac, and
-								that's pretty much how those born under this sign see
-								themselves: first. Aries are the leaders of the pack, first in
-								line to get</p>
-
-							<p class="text-right">
-								<a href="singlepost.html" class="text-right"> 详细阅读 </a>
+							<p class="lead">
+							      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							      <c:out value="${blog.summary }"></c:out>
 							</p>
-
+							<p class="text-right">
+								<a href="/${blog.author}/blog/detail/${blog.id}" class="text-right"> 详细阅读 </a>
+							</p>
 							<hr>
 							</article>
-						</div>
-						
-						<div class="right-body-list-item">
-							<article>
-							<h2>
-								<a href="singlepost.html">Aries Sun Sign March 21 - April 19</a>
-							</h2>
-
-							<div class="row">
-								<div class="group1 col-sm-6 col-md-6">
-									<span class="glyphicon glyphicon-folder-open"></span> <a
-										href="#">Signs</a> <span class="glyphicon glyphicon-bookmark"></span>
-									<a href="#">Aries</a>, <a href="#">Fire</a>, <a href="#">Mars</a>
-								</div>
-								<div class="group2 col-sm-6 col-md-6">
-									<span class="glyphicon glyphicon-pencil"></span> <a
-										href="singlepost.html#comments">20 Comments</a> <span
-										class="glyphicon glyphicon-time"></span> August 24, 2013 9:00
-									PM
-								</div>
-							</div>
-
-							<!-- <hr> -->
-
-							<!-- <img src="http://placehold.it/900x300" class="img-responsive"> -->
-
-							<br />
-
-							<p class="lead">Aries is the first sign of the zodiac, and
-								that's pretty much how those born under this sign see
-								themselves: first. Aries are the leaders of the pack, first in
-								line to get</p>
-
-							<p class="text-right">
-								<a href="singlepost.html" class="text-right"> 详细阅读 </a>
-							</p>
-
-							<hr>
-							</article>
-						</div>
-
-
-					</div>
+					    </c:forEach>
+					</c:if>
+				 </div>
 
 					<br> <br>
 					<nav>
