@@ -42,9 +42,14 @@
 	    order by create_time desc
 	</select>
 	
-	<select id="getByUserIdName" resultMap="Category_Map" parameterType="Page">
+	<select id="getByUserIdName1" resultMap="Category_Map" parameterType="Page">
 	    select * from blog_category
 	    where user_id = #{conditon.userId} and name = #{condition.name}
+	    limit 1
+	</select>
+	<select id="getByUserIdName" resultMap="Category_Map">
+	    select * from blog_category
+	    where user_id = #{userId} and name = #{name}
 	    limit 1
 	</select>
 	

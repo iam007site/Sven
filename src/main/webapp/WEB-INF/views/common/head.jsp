@@ -7,7 +7,8 @@
 	href="/resources/img/icon.gif" media="screen" />
 <!-- Bootstrap core CSS -->
 <link
-	href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css"
+	href="/resources/css/bootstrap3.3.2/bootstrap-3.3.2.min.css"
 	rel="stylesheet">
-<link rel="stylesheet" type="text/css"
-	href="http://timschlechter.github.io/bootstrap-tagsinput/examples/lib/bootstrap-3/dist/css/bootstrap-theme.min.css">
+<link
+	href="/resources/css/bootstrap3.3.2/bootstrap-theme-3.3.2.min.css"
+	rel="stylesheet">

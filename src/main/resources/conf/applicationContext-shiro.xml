@@ -43,9 +43,10 @@
 		        /user/login= authc
 		        /user/logout = logout
 		        /user/register/**= anon
+		        /user/blog/** = user
 		        /doc/** = anon
 		        /home = anon
-		        /user/blog/** = anon
+		        
 		        
 		   </value>
 			<!--value>

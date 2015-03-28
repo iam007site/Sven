@@ -15,6 +15,7 @@ import com.hsq.sven.domain.blog.Category;
 public interface CategoryDao extends BaseDao<Category> {
 	
 	//condition.userId,condition.name
-	public Category getByUserIdName(Page page);
+	public Category getByUserIdName1(Page page);
+	public Category getByUserIdName(@Param("userId") long userId,@Param("name") String name);
 	public ArrayList<Category> getUserAllCategory(@Param("userId") long userId);
 }

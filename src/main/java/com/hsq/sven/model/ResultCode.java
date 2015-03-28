@@ -37,7 +37,8 @@ public enum ResultCode {
 	Website_Commment_Error("51007","展示站点评论失败"),
 	AppFeedback_Create_Error("51008","app反馈提交失败"),
 	
-	
+	//Sven
+	Create_Blog_Error("51010","发布新博文失败！"),
 	
 	;
 	

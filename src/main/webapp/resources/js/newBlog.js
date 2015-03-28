@@ -79,10 +79,8 @@ $(function(){
 	//提交事件
 	$('#submit-btn').click(function(){
 		
-		
-		
         if($("#form").valid()){
-//        	$("#form").submit();
+        	$("#form").submit();
         	var category=$("#category").val();
     		alert(category);
         } 	

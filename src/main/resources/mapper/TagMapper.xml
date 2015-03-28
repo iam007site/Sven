@@ -2,79 +2,52 @@
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hsq.sven.dao.blog.TagDao">
+<mapper namespace="com.hsq.sven.dao.blog.BlogTagDao">
 
 	<resultMap type="BlogTag" id="BlogTag_Map">
 		<id property="id" column="id" />
 		<result property="createTime" column="create_time" />
 		<result property="updateTime" column="update_time" />
 		<result property="blogId" column="blog_id" />
-		<result property="tagId" column="tag_id" />
 		<result property="tagName" column="tag_name" />
 		<result property="userId" column="user_id" />
 	</resultMap>
 
-	<insert id="createBlogTag" parameterType="BlogTag" keyProperty="id"
+	<insert id="create" parameterType="BlogTag" keyProperty="id"
 		useGeneratedKeys="true">
 		insert into
-		blog_blog_tag(create_time,update_time,blog_id,tag_id,tag_name,user_id)
-		values(#{createTime},#{updateTime},#{blogId},#{tagId},#{tagName},#{userId})
-	</insert>
-	
-	<select id="getBlogTag" resultMap="BlogTag_Map" parameterType="long">
-	    select * from blog_blog_tag
-	    where blog_id = #{blogId}
-	    limit 1
-	</select>
-	
-	<select id="getBlogByTagByPage" resultMap="BlogTag_Map" parameterType="Page">
-	    select * from blog_blog_tag
-	    where tag_id = #{tagId} and user_id = #{userId}
-	    order by create_time desc
-	    limit #{offset},#{pageSize}
-	</select>
-	
-	
-	
-	<resultMap type="Tag" id="Tag_Map">
-		<id property="id" column="id" />
-		<result property="createTime" column="create_time" />
-		<result property="updateTime" column="update_time" />
-		<result property="name" column="name" />
-		<result property="userId" column="user_id" />
-	</resultMap>
-
-	<insert id="create" parameterType="Tag" keyProperty="id"
-		useGeneratedKeys="true">
-		insert into
-		blog_tag(create_time,update_time,name,user_id)
-		values(#{createTime},#{updateTime},#{name},#{userId})
+		blog_blog_tag(create_time,update_time,blog_id,tag_name,user_id)
+		values(#{createTime},#{updateTime},#{blogId},#{tagName},#{userId})
 	</insert>
 
-	<select id="findById" resultMap="Tag_Map" parameterType="long">
+	<select id="findById" resultMap="BlogTag_Map" parameterType="long">
 		select *
-		from blog_tag
+		from blog_blog_tag
 		where id = #{id}
 		limit 1
 	</select>
 
 	<delete id="deleteById" parameterType="long">
-		delete from blog_tag
+		delete from blog_blog_tag
 		where
 		id = #{id}
 	</delete>
 
-	<update id="update" parameterType="Tag">
-		update blog_tag
-		set update_time
-		= #{updateTime},title = #{name}
+	<update id="update" parameterType="BlogTag">
+		update blog_blog_tag
+		set update_time = #{updateTime}
 		where id = #{id}
 	</update>
 
-	<select id="getUserAllTag" resultMap="Tag_Map">
-		select * from blog_tag
+	<select id="getUserAllTag" resultMap="BlogTag_Map">
+		select * from blog_blog_tag
 		where user_id = #{userId}
 		order by create_time desc
 	</select>
 
+	<select id="getBlogTag" resultMap="BlogTag_Map" parameterType="long">
+	    select * from blog_blog_tag
+	    where blog_id = #{blogId}
+	    limit 1
+	</select>
 </mapper>

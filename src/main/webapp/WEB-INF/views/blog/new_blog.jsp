@@ -20,7 +20,7 @@ margin-right:40px
 
 </style>
 <link rel="stylesheet" type="text/css"
-	href="http://timschlechter.github.io/bootstrap-tagsinput/examples/lib/bootstrap-tagsinput/bootstrap-tagsinput.css">
+	href="/resources/css/tagsinput/bootstrap-tagsinput.css">
 </head>
 
 <body>
@@ -171,17 +171,17 @@ margin-right:40px
 </body>
 
 <script type="text/javascript"
-	src="http://cdn.jsdelivr.net/jquery.validation/1.13.1/jquery.validate.js"></script>
+	src="/resources/js/jquery1.11.1/jquery.validate.js"></script>
 <script type="text/javascript"
-	src="http://cdn.jsdelivr.net/jquery.validation/1.13.1/additional-methods.min.js"></script>
+	src="/resources/js/jquery1.11.1/additional-methods.min.js"></script>
 
 <script type="text/javascript"
-	src="http://timschlechter.github.io/bootstrap-tagsinput/examples/lib/angular/angular.min.js"></script>
+	src="/resources/js/tagsinput/angular.min.js"></script>
 
 <script type="text/javascript"
-	src="http://timschlechter.github.io/bootstrap-tagsinput/examples/lib/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+	src="/resources/js/tagsinput/bootstrap-tagsinput.min.js"></script>
 
 <script type="text/javascript"
-	src="http://timschlechter.github.io/bootstrap-tagsinput/examples/lib/bootstrap-tagsinput/bootstrap-tagsinput-angular.js"></script>
+	src="/resources/js/tagsinput/bootstrap-tagsinput-angular.min.js"></script>
 <script type="text/javascript" src="/resources/js/newBlog.js"></script>
 </html>

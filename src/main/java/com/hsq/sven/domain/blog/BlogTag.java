@@ -11,9 +11,8 @@ import com.hsq.sven.domain.base.BaseDomain;
 public class BlogTag extends BaseDomain implements Serializable {
 
 	private long blogId;
-	private long tagId;
 	private long userId;
-	private long tagName;
+	private String tagName;
 
 	public long getBlogId() {
 		return blogId;
@@ -21,14 +20,6 @@ public class BlogTag extends BaseDomain implements Serializable {
 
 	public void setBlogId(long blogId) {
 		this.blogId = blogId;
-	}
-
-	public long getTagId() {
-		return tagId;
-	}
-
-	public void setTagId(long tagId) {
-		this.tagId = tagId;
 	}
 
 	public long getUserId() {
@@ -39,11 +30,11 @@ public class BlogTag extends BaseDomain implements Serializable {
 		this.userId = userId;
 	}
 
-	public long getTagName() {
+	public String getTagName() {
 		return tagName;
 	}
 
-	public void setTagName(long tagName) {
+	public void setTagName(String tagName) {
 		this.tagName = tagName;
 	}
 
