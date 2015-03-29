@@ -14,11 +14,11 @@
 		<spring.version>4.0.6.RELEASE</spring.version>
 		<!-- mybatis版本号 -->
 		<mybatis.version>3.2.7</mybatis.version>
-	<!-- log4j日志文件管理包版本 -->
-	<!-- <slf4j.version>1.7.7</slf4j.version> <log4j.version>1.2.17</log4j.version> -->
-	<!-- Logging -->
-	<logback.version>1.1.2</logback.version>
-	<slf4j.version>1.7.7</slf4j.version>
+		<!-- log4j日志文件管理包版本 -->
+		<!-- <slf4j.version>1.7.7</slf4j.version> <log4j.version>1.2.17</log4j.version> -->
+		<!-- Logging -->
+		<logback.version>1.1.2</logback.version>
+		<slf4j.version>1.7.7</slf4j.version>
 	</properties>
 	<dependencies>
 		<!-- spring核心包 -->
@@ -146,40 +146,30 @@
 
 		<!-- 日志文件管理包 -->
 		<!-- log start -->
-	<!-- Logging with SLF4J & LogBack -->
-	<dependency>
-		<groupId>org.slf4j</groupId>
-		<artifactId>slf4j-api</artifactId>
-		<version>${slf4j.version}</version>
-		<scope>compile</scope>
-	</dependency>
-<!-- 	<dependency>
-		<groupId>ch.qos.logback</groupId>
-		<artifactId>logback-core</artifactId>
-		<version>${logback.version}</version>
-	</dependency> -->
-	<dependency>
-		<groupId>ch.qos.logback</groupId>
-		<artifactId>logback-classic</artifactId>
-		<version>${logback.version}</version>
-		<scope>runtime</scope>
-	</dependency>
-<!-- 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>${log4j.version}</version>
-		</dependency>
+		<!-- Logging with SLF4J & LogBack -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j.version}</version>
+			<scope>compile</scope>
 		</dependency>
+		<!-- <dependency> <groupId>ch.qos.logback</groupId> <artifactId>logback-core</artifactId> 
+			<version>${logback.version}</version> </dependency> -->
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency> -->
-		<!-- log end -->
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- kindeditor upload -->
+		<dependency>
+			<groupId>org.apache.clerezza.ext</groupId>
+			<artifactId>org.json.simple</artifactId>
+			<version>0.4</version>
+		</dependency>
+
+		<!-- kindeditor upload -->
 
 		<dependency>
 			<groupId>org.glassfish.web</groupId>
@@ -281,7 +271,7 @@
 				<configuration>
 					<source>${java-version}</source>
 					<target>${java-version}</target>
-					<encoding>UTF-8</encoding> 
+					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -292,5 +282,5 @@
 		</plugins>
 
 	</build>
-	
+
 </project>

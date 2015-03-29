@@ -78,7 +78,8 @@ $(function(){
 	
 	//提交事件
 	$('#submit-btn').click(function(){
-		
+		summaryEditor.sync();
+		contentEditor.sync();
         if($("#form").valid()){
         	$("#form").submit();
         	var category=$("#category").val();
