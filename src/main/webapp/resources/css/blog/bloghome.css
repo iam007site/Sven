@@ -1,0 +1,61 @@
+/*
+* huangshanqi
+*/
+
+body {
+	background-color: rgb(239, 239, 234);
+}
+
+.right-body-list h3 a {
+	color: #000000;
+}
+
+.left-body {
+	margin: 0;
+	padding: 0;
+	width: 250px;
+	min-height: 200px;
+}
+
+.left-item {
+	border-radius: 7px 7px 7px 7px;
+	box-shadow: 1px 1px 2px #a7a8ad;
+	background: #fff;
+	margin: 0 5px 20px;
+	padding: 5px;
+}
+
+.left-item-li {
+	padding: 5px;
+}
+
+.left-item-title {
+	color: #fff;
+	border-bottom: 1px solid #dadfe1;
+	height: 1.5em;
+	line-height: 1.5em;
+	background: #373737;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	text-indent: 1em;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, .3);
+}
+
+.right-body {
+	height: 100%;
+	background-color: #fff;
+	border-radius: 7px 7px 7px 7px;
+	box-shadow: 1px 1px 2px #a7a8ad;
+}
+
+.right-body-list {
+	padding: 5px;
+}
+
+}
+.right-body-list-item {
+	min-height: 20px;
+	margin-bottom: 30px;
+	padding-bottom: 5px;
+	width: 100%;
+}

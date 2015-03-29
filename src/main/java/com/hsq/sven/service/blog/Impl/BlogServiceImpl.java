@@ -34,6 +34,17 @@ public class BlogServiceImpl implements BlogService {
 	
 	@Autowired
 	private BlogTagDao blogTagDao;
+	
+	
+	
+	
+	
+
+	@Override
+	public Blog getBlogById(long blogId) {
+		// TODO Auto-generated method stub
+		return blogDao.findById(blogId);
+	}
 
 	@Transactional
 	@Override
@@ -96,15 +107,17 @@ public class BlogServiceImpl implements BlogService {
 	@Override
 	public ArrayList<BlogCategoryStatistic> getUserBlogCategoryStatistic(long userId) {
 		// TODO Auto-generated method stub
-//		List<Map<String, Object>> origin = blogDao.getUsrBlogCategoryStatistic(userId);
-//		for (Map<String, Object> map : origin) {
-//		      for (Map.Entry<String, Object> entry : map.entrySet()) {
-//		        System.out.println(entry.getKey() + ":" + entry.getValue());
-//		      }
-//		}
 		return blogDao.getUsrBlogCategoryStatistic(userId);
 	}
 
+	@Override
+	public ArrayList<BlogItem> getUserBlogByCategoryByOffset(long userId, long categoryId, int offset, int pageSize) {
+		// TODO Auto-generated method stub
+		return blogDao.getUserBlogByCategoryByOffset(userId,categoryId,offset,pageSize);
+	}
+
+	
+	
 	
 	
 	
