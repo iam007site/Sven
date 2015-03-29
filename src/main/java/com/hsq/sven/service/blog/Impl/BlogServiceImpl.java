@@ -98,10 +98,21 @@ public class BlogServiceImpl implements BlogService {
 		return blogDao.getUserTotalBlogNum(userId);
 	}
 
+	@Transactional
 	@Override
 	public ArrayList<BlogItem> getUserBlogByOffset(long userId, int offset, int pageSize) {
 		// TODO Auto-generated method stub
-		return blogDao.getUserBlogByOffset(userId, offset, pageSize);
+		ArrayList<BlogItem> blogs = blogDao.getUserBlogByOffset(userId, offset, pageSize);
+		if(blogs!=null){
+			for(BlogItem blog:blogs){
+				ArrayList<String> tags = new ArrayList<String>();
+				for(BlogTag blogTag:blogTagDao.getBlogTag(blog.getId())){
+					tags.add(blogTag.getTagName());
+				}
+				blog.setTags(tags);
+			}
+		}
+		return blogs;
 	}
 
 	@Override
@@ -110,12 +121,56 @@ public class BlogServiceImpl implements BlogService {
 		return blogDao.getUsrBlogCategoryStatistic(userId);
 	}
 
+	@Transactional
 	@Override
 	public ArrayList<BlogItem> getUserBlogByCategoryByOffset(long userId, long categoryId, int offset, int pageSize) {
 		// TODO Auto-generated method stub
-		return blogDao.getUserBlogByCategoryByOffset(userId,categoryId,offset,pageSize);
+		ArrayList<BlogItem> blogs = blogDao.getUserBlogByCategoryByOffset(userId,categoryId,offset,pageSize);
+		if(blogs!=null){
+			for(BlogItem blog:blogs){
+				ArrayList<String> tags = new ArrayList<String>();
+				for(BlogTag blogTag:blogTagDao.getBlogTag(blog.getId())){
+					tags.add(blogTag.getTagName());
+				}
+				blog.setTags(tags);
+			}
+		}
+		return blogs;
 	}
 
+	@Transactional
+	@Override
+	public ArrayList<BlogItem> getUserBlogByTagByOffset(long userId, String tag, int offset, int pageSize) {
+		// TODO Auto-generated method stub
+		ArrayList<BlogItem> blogs = blogDao.getUserBlogByTagByOffset(userId,tag,offset,pageSize);
+		if(blogs!=null){
+			for(BlogItem blog:blogs){
+				ArrayList<String> tags = new ArrayList<String>();
+				for(BlogTag blogTag:blogTagDao.getBlogTag(blog.getId())){
+					tags.add(blogTag.getTagName());
+				}
+				blog.setTags(tags);
+			}
+		}
+		return blogs;
+	}
+
+	@Transactional
+	@Override
+	public ArrayList<String> getUserAllTag(long userId) {
+		// TODO Auto-generated method stub
+		ArrayList<BlogTag> blogTags = blogTagDao.getUserAllTag(userId);
+		if(blogTags != null){
+			ArrayList<String> tags = new ArrayList<String>();
+			for(BlogTag blogTag:blogTags){
+			    tags.add(blogTag.getTagName());
+			}
+			return tags;
+		}
+		return null;
+	}
+
+	
 	
 	
 	

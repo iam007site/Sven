@@ -1,5 +1,7 @@
 package com.hsq.sven.domain.blog.item;
 
+import java.util.ArrayList;
+
 import com.hsq.sven.domain.base.BaseDomain;
 
 /*author:huangshanqi
@@ -13,6 +15,7 @@ public class BlogItem extends BaseDomain {
 	private String summary;
 	private String categoryName;
 	private long categoryId;
+	private ArrayList<String> tags;
 
 	public String getBlogType() {
 		return blogType;
@@ -60,6 +63,14 @@ public class BlogItem extends BaseDomain {
 
 	public void setCategoryId(long categoryId) {
 		this.categoryId = categoryId;
+	}
+
+	public ArrayList<String> getTags() {
+		return tags;
+	}
+
+	public void setTags(ArrayList<String> tags) {
+		this.tags = tags;
 	}
 
 }

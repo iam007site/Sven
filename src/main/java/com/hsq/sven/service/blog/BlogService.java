@@ -19,5 +19,8 @@ public interface BlogService {
 	
 	public ArrayList<BlogItem> getUserBlogByOffset(long userId,int offset,int pageSize);
 	public ArrayList<BlogItem> getUserBlogByCategoryByOffset(long userId,long categoryId,int offset,int pageSize);
+	public ArrayList<BlogItem> getUserBlogByTagByOffset(long userId,String tag,int offset,int pageSize);
 	public ArrayList<BlogCategoryStatistic> getUserBlogCategoryStatistic(long userId);
+	public ArrayList<String> getUserAllTag(long userId);
+	
 }

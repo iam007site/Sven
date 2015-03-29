@@ -73,16 +73,13 @@
 						</div>
 						<div class="panel-body">
 							<ul class="list-inline">
-								<li><a href="#">Aries</a></li>
-								<li><a href="#">Fire</a></li>
-								<li><a href="#">Mars</a></li>
-								<li><a href="#">Taurus</a></li>
-								<li><a href="#">Earth</a></li>
-								<li><a href="#">Moon</a></li>
-								<li><a href="#">Gemini</a></li>
-								<li><a href="#">Air</a></li>
-								<li><a href="#">Mercury</a></li>
-								<li><a href="#">Cancer</a></li>
+							    <c:if test="${not empty tags}">
+							        <c:forEach items="${tags }" var="tag">
+							            <li>
+							               <a href="/${author}/blog/tag/${tag}"><c:out value="${tag}"></c:out></a>
+							             </li>
+							        </c:forEach>
+							    </c:if>
 							</ul>
 						</div>
 					</div>
@@ -124,12 +121,16 @@
 
 								<div class="row">
 									<div class="group1 col-sm-6 col-md-6">
-										<span class="glyphicon glyphicon-folder-open"></span> <a
-											href="#"> <strong><c:out
-													value="${blog.categoryName }">
-												</c:out></strong>
-										</a> <span class="glyphicon glyphicon-bookmark"></span> <a
-											href="#">Aries</a>, <a href="#">Fire</a>, <a href="#">Mars</a>
+										<span class="glyphicon glyphicon-folder-open"></span> 
+										分类：<a href="/${blog.author}/blog/category/${blog.categoryId}"> <strong><c:out value="${blog.categoryName }"> </c:out></strong> </a> 
+										<span class="glyphicon glyphicon-bookmark"></span> 
+										标签：
+										<c:if test="${not empty blog.tags }">
+										    <c:forEach items="${blog.tags }" var="tag">
+										        <a href="/${blog.author}/blog/tag/${tag}"><c:out value="${tag}"></c:out></a>
+										        &nbsp;&nbsp;
+										    </c:forEach>
+										</c:if>
 									</div>
 									<div class="group2 col-sm-6 col-md-6">
 										<span class="glyphicon glyphicon-pencil"></span> <a

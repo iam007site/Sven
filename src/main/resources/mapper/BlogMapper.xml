@@ -83,6 +83,17 @@
 		order by create_time desc
 		limit #{offset},#{pageSize}
 	</select>
+	
+	<select id="getUserBlogByTagByOffset" resultMap="BlogItem_Map" >
+	    select * from blog_blog
+        where id in (
+        select distinct(blog_id) from blog_blog_tag 
+        where tag_name=#{tagName} and user_id=#{userId}
+        )
+        order by create_time desc
+        limit #{offset},#{pageSize}
+	</select>
+
 
 	<select id="getUsrBlogCategoryStatistic" resultMap="Blog_Category_Statistic_Map">
 		select author,count(id) as num,category_name,category_id
@@ -91,5 +102,7 @@
 		group by category_id,category_name
 		order by category_name;
 	</select>
+	
+
 
 </mapper>

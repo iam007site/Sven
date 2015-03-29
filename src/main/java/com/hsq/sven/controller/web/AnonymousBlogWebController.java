@@ -32,6 +32,7 @@ public class AnonymousBlogWebController {
 
 	@Autowired
 	private UserService userService;
+	
 
 	@RequestMapping(value = "{username}", method = RequestMethod.GET)
 	public String userHome(@PathVariable("username") String username, HttpServletRequest request) {
@@ -64,12 +65,12 @@ public class AnonymousBlogWebController {
 			}
 
 			ArrayList<BlogItem> blogList = blogService.getUserBlogByOffset(user.getId(), (pageNum - 1)* Constants.BlogPageSize, Constants.BlogPageSize);
-			// //
 			ArrayList<BlogCategoryStatistic> categoryList = blogService.getUserBlogCategoryStatistic(user.getId());
-
+            ArrayList<String> tags = blogService.getUserAllTag(user.getId());
 			request.setAttribute("blogList", blogList);
 			request.setAttribute("categoryList", categoryList);
-			// return blogList;
+			request.setAttribute("tags", tags);
+			request.setAttribute("author", username);
 			return "blog/blog_home";
 		}
 
@@ -84,10 +85,11 @@ public class AnonymousBlogWebController {
 			return "blog/blogdetail_not_found";
 		} else {
 			ArrayList<BlogCategoryStatistic> categoryList = blogService.getUserBlogCategoryStatistic(user.getId());
-
+			ArrayList<String> tags = blogService.getUserAllTag(user.getId());
 			request.setAttribute("blog", blog);
 			request.setAttribute("categoryList", categoryList);
-			// return blogList;
+			request.setAttribute("tags", tags);
+			request.setAttribute("author", username);
 			return "blog/blog_detail";
 		}
 	}
@@ -101,8 +103,29 @@ public class AnonymousBlogWebController {
 		} else {
 			ArrayList<BlogCategoryStatistic> categoryList = blogService.getUserBlogCategoryStatistic(user.getId());
 			ArrayList<BlogItem> blogList = blogService.getUserBlogByCategoryByOffset(user.getId(),categoryId, 0, Constants.BlogPageSize);
+			ArrayList<String> tags = blogService.getUserAllTag(user.getId());
 			request.setAttribute("blogList", blogList);
 			request.setAttribute("categoryList", categoryList);
+			request.setAttribute("tags", tags);
+			request.setAttribute("author", username);
+			return "blog/blog_home";
+		}
+	}
+	
+	@RequestMapping(value = "{username}/blog/tag/{tagName}", method = RequestMethod.GET)
+	public String blogTagSearch(@PathVariable("username") String username, @PathVariable("tagName") String tagName,
+			HttpServletRequest request) {
+		User user = userService.findUserByUserName(username);
+		if (user == null) {
+			return "blog/userblog_not_found";
+		} else {
+			ArrayList<BlogCategoryStatistic> categoryList = blogService.getUserBlogCategoryStatistic(user.getId());
+			ArrayList<BlogItem> blogList = blogService.getUserBlogByTagByOffset(user.getId(),tagName, 0, Constants.BlogPageSize);
+			ArrayList<String> tags = blogService.getUserAllTag(user.getId());
+			request.setAttribute("blogList", blogList);
+			request.setAttribute("categoryList", categoryList);
+			request.setAttribute("tags", tags);
+			request.setAttribute("author", username);
 			return "blog/blog_home";
 		}
 	}

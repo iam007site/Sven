@@ -42,7 +42,8 @@
 	<select id="getUserAllTag" resultMap="BlogTag_Map">
 		select * from blog_blog_tag
 		where user_id = #{userId}
-		order by create_time desc
+		group by tag_name
+		order by tag_name
 	</select>
 
 	<select id="getBlogTag" resultMap="BlogTag_Map" parameterType="long">

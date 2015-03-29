@@ -19,5 +19,6 @@ public interface BlogDao extends BaseDao<Blog> {
 	public int getUserTotalBlogNum(@Param("userId")long userId);
 	public ArrayList<BlogItem> getUserBlogByOffset(@Param("userId") long userId,@Param("offset") int offset,@Param("pageSize") int pageSize);
 	public ArrayList<BlogItem> getUserBlogByCategoryByOffset(@Param("userId") long userId,@Param("categoryId") long categoryId,@Param("offset") int offset,@Param("pageSize") int pageSize);
+	public ArrayList<BlogItem> getUserBlogByTagByOffset(@Param("userId") long userId,@Param("tagName") String tagName,@Param("offset") int offset,@Param("pageSize") int pageSize);
     public ArrayList<BlogCategoryStatistic> getUsrBlogCategoryStatistic(@Param("userId") long userId);
 }
