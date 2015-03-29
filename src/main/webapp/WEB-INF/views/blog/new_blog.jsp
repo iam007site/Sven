@@ -60,7 +60,7 @@ margin-right:40px
 						</div>
 						<div class="col-md-8">
 							<textarea class="form-control" rows="6" id="summary"
-								name="summary"></textarea>
+								name="summary">请输入文章摘要，最多300字</textarea>
 						</div>
 					</div>
 
@@ -70,7 +70,7 @@ margin-right:40px
 						</div>
 						<div class="col-md-8">
 							<textarea rows="20" class="form-control" id="content"
-								name="content"></textarea>
+								name="content">请输入文章内容，最多8000字</textarea>
 						</div>
 					</div>
 
@@ -169,22 +169,7 @@ margin-right:40px
 	</div>
 
 </body>
-<script charset="utf-8" src="/resources/js/kindeditor/kindeditor.js"></script>
-<script charset="utf-8" src="/resources/js/kindeditor/lang/zh_CN.js"></script>
-<script>
-        KindEditor.ready(function(K) {
-           var summaryEditor = K.create('#summary',{
-                	uploadJson : '${ctx}/resources/js/kindeditor/jsp/upload_json.jsp',
-                	height:"200px"
-                	});
-        });
-        KindEditor.ready(function(K) {
-            var contentEditor = K.create('#content',{
-            	uploadJson : '${ctx}/resources/js/kindeditor/jsp/upload_json.jsp',
-            	height:"600px"
-            	});
-    });
-</script>
+
 <script type="text/javascript"
 	src="/resources/js/jquery1.11.1/jquery.validate.js"></script>
 <script type="text/javascript"

@@ -65,6 +65,22 @@
 		where id = #{id}
 	</update>
 
+	<select id="getByPage" resultMap="Blog_Map" parameterType="Page">
+		select * from blog_blog
+		where user_id = #{condition.userId}
+		order by create_time desc
+		limit #{offset},#{pageSize}
+	</select>
+
+	<select id="getByCategoryByPage" resultMap="Blog_Map"
+		parameterType="Page">
+		select * from blog_blog
+		where user_id = #{condition.userId} and category_id =
+		#{condition.categoryId}
+		order by create_time desc
+		limit #{offset},#{pageSize}
+	</select>
+
 	<select id="getUserTotalBlogNum" resultType="int">
 		select count(*) from blog_blog
 		where user_id = #{userId}
@@ -73,13 +89,6 @@
 	<select id="getUserBlogByOffset" resultMap="BlogItem_Map">
 		select * from blog_blog
 		where user_id = #{userId}
-		order by create_time desc
-		limit #{offset},#{pageSize}
-	</select>
-
-	<select id="getUserBlogByCategoryByOffset" resultMap="BlogItem_Map" >
-		select * from blog_blog
-		where user_id = #{userId} and category_id = #{categoryId}
 		order by create_time desc
 		limit #{offset},#{pageSize}
 	</select>

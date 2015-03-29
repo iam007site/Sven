@@ -16,8 +16,12 @@ import com.hsq.sven.domain.blog.item.BlogItem;
  */
 public interface BlogDao extends BaseDao<Blog> {
 	
+	//offset,pageSize,userId
+	public ArrayList<Blog> getByPage(Page page);
+	//offset,pageSize,userId,categoryId
+	public ArrayList<Blog> getByCategoryByPage(Page page);
+	
 	public int getUserTotalBlogNum(@Param("userId")long userId);
 	public ArrayList<BlogItem> getUserBlogByOffset(@Param("userId") long userId,@Param("offset") int offset,@Param("pageSize") int pageSize);
-	public ArrayList<BlogItem> getUserBlogByCategoryByOffset(@Param("userId") long userId,@Param("categoryId") long categoryId,@Param("offset") int offset,@Param("pageSize") int pageSize);
     public ArrayList<BlogCategoryStatistic> getUsrBlogCategoryStatistic(@Param("userId") long userId);
 }

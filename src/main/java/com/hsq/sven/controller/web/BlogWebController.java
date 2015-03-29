@@ -19,7 +19,7 @@ import com.hsq.sven.service.blog.BlogService;
  */
 @Controller
 @RequestMapping(value="user/blog")
-public class UserBlogWebController {
+public class BlogWebController {
 	
 	@Autowired
 	private BlogService blogService;
