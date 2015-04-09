@@ -7,18 +7,20 @@
 	<resultMap type="User" id="USER_MAP">
 		<id property="id" column="id" />
 		<result property="createTime" column="create_time" />
+		<result property="updateTime" column="update_time" />
 		<result property="username" column="username" />
 		<result property="email" column="email" />
 		<result property="password" column="password" />
 		<result property="emailAuth" column="email_auth" />
 		<result property="salt" column="salt" />
+		<result property="emailExpiredTime" column="email_expired_time" />
 	</resultMap>
 
 	<insert id="create" parameterType="User" keyProperty="id"
 		useGeneratedKeys="true">
 		insert into
-		u_user(create_time,username,email,password,email_auth,salt)
-		values(#{createTime},#{username},#{email},#{password},#{emailAuth},#{salt})
+		u_user(create_time,update_time,username,email,password,email_auth,salt,email_expired_time)
+		values(#{createTime},#{updateTime},#{username},#{email},#{password},#{emailAuth},#{salt},#{emailExpiredTime})
 	</insert>
 
 	<select id="findUserByEmail" parameterType="String" resultMap="USER_MAP">
@@ -33,7 +35,7 @@
 		where username = #{username}
 		limit 1
 	</select>
-	<select id="findById" parameterType="int" resultMap="USER_MAP">
+	<select id="findById" parameterType="long" resultMap="USER_MAP">
 		select *
 		from u_user
 		where id = #{id}
@@ -60,7 +62,7 @@
 	</update>
 
 
-	<delete id="deleteById" parameterType="int">
+	<delete id="deleteById" parameterType="long">
 		delete from u_user
 		where id = #{id}
 	</delete>

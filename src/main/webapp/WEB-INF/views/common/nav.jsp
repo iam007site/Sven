@@ -22,7 +22,7 @@
 				<ul class="nav navbar-nav pull-right">
 
 					<shiro:authenticated>
-						<li><a href="#"> 欢迎 <shiro:principal property="username" />
+						<li><a href="#"> 欢迎 <shiro:principal property="email" />
 						</a></li>
 						<li><a href="/user/logout">[退出]</a></li>
 					</shiro:authenticated>

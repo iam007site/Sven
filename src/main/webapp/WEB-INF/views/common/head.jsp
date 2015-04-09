@@ -4,7 +4,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="shortcut icon" type="image/x-icon"
-	href="/resources/img/icon.gif" media="screen" />
+	href="/resources/img/icon.png" media="screen" />
 <!-- Bootstrap core CSS -->
 <link
 	href="/resources/css/bootstrap3.3.2/bootstrap-3.3.2.min.css"

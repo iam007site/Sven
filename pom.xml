@@ -257,6 +257,14 @@
 			<version>2.2</version>
 		</dependency>
 		<!-- fileupload -->
+
+		<!-- mail -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+		<!-- -->
 	</dependencies>
 	<build>
 		<!-- 默认的主代码目录 -->

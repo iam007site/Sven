@@ -9,15 +9,15 @@ import java.util.Date;
  */
 public class SessionModel implements Serializable {
 	private String email;
-	private int userId;
+	private long userId;
 	private String username;
 	private Long expireshIn;
 
-	public int getUserId() {
+	public long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
 
@@ -45,7 +45,7 @@ public class SessionModel implements Serializable {
 		this.expireshIn = expireshIn;
 	}
 
-	public boolean isExpired(){
+	public boolean isExpired() {
 		Long now = new Date().getTime();
 		return now > expireshIn;
 	}

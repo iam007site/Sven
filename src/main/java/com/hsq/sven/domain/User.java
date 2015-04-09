@@ -9,19 +9,21 @@ import java.util.Date;
  */
 public class User implements Serializable {
 
-	private int id;
+	private long id;
 	private Date createTime;
+	private Date updateTime;
 	private String username;
 	private String email;
 	private String password;
 	private int emailAuth;
 	private String salt;
+	private long emailExpiredTime;
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -31,6 +33,14 @@ public class User implements Serializable {
 
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
+	}
+
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 
 	public String getUsername() {
@@ -71,6 +81,14 @@ public class User implements Serializable {
 
 	public void setSalt(String salt) {
 		this.salt = salt;
+	}
+
+	public long getEmailExpiredTime() {
+		return emailExpiredTime;
+	}
+
+	public void setEmailExpiredTime(long emailExpiredTime) {
+		this.emailExpiredTime = emailExpiredTime;
 	}
 
 }

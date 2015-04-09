@@ -2,6 +2,7 @@ package com.hsq.sven.service.Impl;
 
 import java.util.Date;
 
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,13 +28,16 @@ public class UserServiceImpl implements UserService {
 	
 	@Transactional
 	@Override
-	public long createUser(User user) {
+	public User createUser(User user) {
 		// TODO Auto-generated method stub
 		User temp = userDao.findUserByEmail(user.getEmail());
 		if(temp != null)
-			return -1;
+			return null;
 		user.setCreateTime(new Date());
+		user.setUpdateTime(user.getCreateTime());
 		user.setEmailAuth(0);
+		//邮箱验证两小时内有效
+		user.setEmailExpiredTime(DateUtils.addHours(user.getCreateTime(), 2).getTime());
 		
 		
 		byte[] salt = Digests.generateSalt(SALT_SIZE);
@@ -41,7 +45,11 @@ public class UserServiceImpl implements UserService {
 
 		byte[] hashPassword = Digests.sha1(user.getPassword().getBytes(), salt, HASH_INTERATIONS);
 		user.setPassword(Encodes.encodeHex(hashPassword));
-		return userDao.create(user);
+		if(userDao.create(user)>0){
+			return user;
+		}else{
+			return null;
+		}
 	}
 
 	@Override
@@ -57,14 +65,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User findUserByid(int userId) {
+	public User findUserByid(long userId) {
 		// TODO Auto-generated method stub
 		return userDao.findById(userId);
 	}
 
 	@Transactional
 	@Override
-	public boolean updateUsername(int userId, String username) {
+	public boolean updateUsername(long userId, String username) {
 		// TODO Auto-generated method stub
 		User temp = userDao.findById(userId);
 		if(temp == null){
@@ -77,7 +85,7 @@ public class UserServiceImpl implements UserService {
 
 	@Transactional
 	@Override
-	public boolean updatePassword(int userId, String password) {
+	public boolean updatePassword(long userId, String password) {
 		// TODO Auto-generated method stub
 		User temp = userDao.findById(userId);
 		if(temp == null){
@@ -90,7 +98,7 @@ public class UserServiceImpl implements UserService {
 
 	@Transactional
 	@Override
-	public boolean checkPassword(int userId, String password) {
+	public boolean checkPassword(long userId, String password) {
 		// TODO Auto-generated method stub
 		User temp = userDao.findById(userId);
 		if(temp == null){
@@ -101,7 +109,7 @@ public class UserServiceImpl implements UserService {
 
 	@Transactional
 	@Override
-	public boolean updateEmailAuth(int userId, int emailAuthStatus) {
+	public boolean updateEmailAuth(long userId, int emailAuthStatus) {
 		// TODO Auto-generated method stub
 		User temp = userDao.findById(userId);
 		if(temp == null){
@@ -113,7 +121,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean checkEmailAuth(int userId) {
+	public boolean checkEmailAuth(long userId) {
 		// TODO Auto-generated method stub
 		User temp = userDao.findById(userId);
 		if(temp == null){

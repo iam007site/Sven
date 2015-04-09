@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<!-- 服务器 -->
+		<property name="host" value="smtp.mxhichina.com" />
+		<!-- 端口号 -->
+		<property name="port" value="25" />
+		<!-- 用户名 -->
+		<property name="username" value="sender1@evilcoder.cn" />
+		<!-- 密码 -->
+		<property name="password" value="0310Huangshanqi" />
+		<!-- SMTP服务器验证 -->
+		<property name="javaMailProperties">
+			<props>
+				<!-- 验证身份 -->
+				<prop key="mail.smtp.auth">true</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 目前我用过的EMAIL账号都是网易的,下面列出网易的SMTP服务器名和端口号: 网易邮箱 SMTP服务器 SMTP端口 POP3服务器 
+		POP3端口 @126.com smtp.126.com 25 pop3.126.com 110 @163.com smtp.163.com 25 
+		pop3.163.com 110 @yeah.net smtp.yeah.net 25 pop3.yeah.net 110 -->
+
+	<bean id="simpleMailMessage" class="org.springframework.mail.SimpleMailMessage">
+		<!-- 发件人email -->
+		<property name="from" value="sender1@evilcoder.cn" />
+		<!-- 收件人email <property name="to" value="to@yeah.net" /> email主题(标题) <property 
+			name="subject" value="Subject" /> email主题内容 <property name="text"> <value>ContentText</value> 
+			</property> -->
+	</bean>
+
+	<bean id="emailUtils" class="com.hsq.sven.utils.EmailUtils">
+		<property name="mailSender" ref="mailSender" />
+		<property name="simpleMailMessage" ref="simpleMailMessage" />
+	</bean>
+
+	<!--异步线程执行器 -->
+	<bean id="taskExecutor"
+		class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="corePoolSize" value="10" />
+		<property name="maxPoolSize" value="30" />
+	</bean>
+
+</beans>

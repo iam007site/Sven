@@ -15,17 +15,17 @@ public interface UserService {
 	
 
 	
-	public long createUser(User user);
+	public User createUser(User user);
 	
 	public User findUserByEmail(String email);
 	public User findUserByUserName(String username);
-	public User findUserByid(int userId);
+	public User findUserByid(long userId);
 	
-	public boolean updateUsername(int userId,String username);
-	public boolean updatePassword(int userId,String password);
+	public boolean updateUsername(long userId,String username);
+	public boolean updatePassword(long userId,String password);
 	
-	public boolean checkPassword(int userId,String password);
-	public boolean updateEmailAuth(int userId,int emailAuthStatus);
-	public boolean checkEmailAuth(int userId);
+	public boolean checkPassword(long userId,String password);
+	public boolean updateEmailAuth(long userId,int emailAuthStatus);
+	public boolean checkEmailAuth(long userId);
 
 }

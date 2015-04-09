@@ -10,7 +10,8 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:conf/spring.xml;
             classpath:conf/spring-mybatis.xml;
-            classpath:conf/applicationContext-shiro.xml
+            classpath:conf/applicationContext-shiro.xml;
+            classpath:conf/spring-smtp-mail.xml
         </param-value>
 	</context-param>
 
